@@ -35,7 +35,7 @@ This repository contains data and code reported in:
 - **Description:**  
   Each `.mat` file contains voxel activity pattern (#trial X #voxel) for each subject, session, and ROI. Data from the 1-item experiment is used only for voxel selection.
 
-### Outputs of Analysis
+## Outputs of Analysis
 - **Folder:** `mdata/decoded`
   - **Contents:**  
     Decoding results for each subject and ROI. Each `.mat` file contains:
@@ -49,7 +49,7 @@ This repository contains data and code reported in:
 
 ---
 
-## II. Code
+### II. Code
 
 - **Main Script:**  
   Run `wmPriority_wrapper.m` to decode two items from the voxel activity of a particular subject and ROI.
