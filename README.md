@@ -54,7 +54,7 @@ This repository contains data and code reported in:
 ## III. Code
 
 - **Main Script:**  
-  Run `wmPriority_wrapper.m` to decode two items from the voxel activity of a particular subject and ROI.
+  Run `wmPriority_wrapper.m` to decode two items for each trial from the voxel activity of a particular subject and ROI.
   
 - **Decoding Algorithms:**  
   Located in the folder `Decode_2item`. The estimation of the noise covariance matrix adapts the TAFKAP method developed by Van Bergen & Jehee - *BioRxiv, 2021*.
