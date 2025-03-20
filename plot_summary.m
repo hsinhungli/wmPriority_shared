@@ -7,9 +7,9 @@ load('summary.mat');
 %% Figure 4: Decoding error
 cpsFigure(1,.7);
 data = sq(mdata.nerr_mean(1,:,:));
-myerrorbar((1:nROI)-.1, mean(data,2), std(data,[],2)/sqrt(nsub),0,[.2 .2 .2]);
+plot_errorbar((1:nROI)-.1, mean(data,2), std(data,[],2)/sqrt(nsub),0,[.2 .2 .2]);
 data = sq(mdata.nerr_mean(2,:,:));
-myerrorbar((1:nROI)+.1, mean(data,2), std(data,[],2)/sqrt(nsub),0,[.7 .7 .7]);
+plot_errorbar((1:nROI)+.1, mean(data,2), std(data,[],2)/sqrt(nsub),0,[.7 .7 .7]);
 xlim([.5 nROI+.5])
 ylim([20 60]);
 set(gca, 'XTick', 1:nROI, 'XTickLabel', ROIs, 'YTick', 20:10:60, 'FontSize',12);
@@ -27,7 +27,7 @@ for vv = 1:nROI
     ss.MarkerEdgeColor = [1 1 1];
     ss.MarkerFaceColor = [.8 .8 .8];
 end
-myerrorbar(thisx, thisy, sem, 0,'k',[]); hold on;
+plot_errorbar(thisx, thisy, sem, 0,'k',[]); hold on;
 ff = fplot(@(x) x*0+1, [0 nROI+1],'--');
 ff.Color = [.5 .5 .5];
 axis([.5 nROI+.5 -.1 2.1]);
@@ -38,9 +38,9 @@ ylabel('gain of the low-priority item','FontSize',14);
 %% Figure 6A: Decoded uncertainty
 cpsFigure(1,.7);
 data = sq(mdata.unc(1,:,:));
-myerrorbar((1:nROI)-.1, mean(data,2), std(data,[],2)/sqrt(nsub),0,[.2 .2 .2]);
+plot_errorbar((1:nROI)-.1, mean(data,2), std(data,[],2)/sqrt(nsub),0,[.2 .2 .2]);
 data = sq(mdata.unc(2,:,:));
-myerrorbar((1:nROI)+.1, mean(data,2), std(data,[],2)/sqrt(nsub),0,[.7 .7 .7]);
+plot_errorbar((1:nROI)+.1, mean(data,2), std(data,[],2)/sqrt(nsub),0,[.7 .7 .7]);
 axis([ .5 nROI+.5 10 50]);
 set(gca, 'XTick', 1:nROI, 'XTickLabel', ROIs, 'FontSize',12);
 box off;
@@ -76,7 +76,7 @@ for vv = 1:nROI
     text(-1,-6.5,sprintf('Corr = %1.2f',thiscorr),'FontSize',10);
     
     if vv==1
-    mylabel('Neural prioritization', 'Behavioral prioritization');
+    plot_label('Neural prioritization', 'Behavioral prioritization');
     end
     axis([-1 1 -8 8]);
     axis square;
@@ -114,7 +114,7 @@ for vv = 1:nROI
     text(-.5,.475,sprintf('Corr = %1.2f',thiscorr),'FontSize',10);
     
     if vv==1
-    mylabel('Probe prioritization', 'Saccade RT (sec)');
+    plot_label('Probe prioritization', 'Saccade RT (sec)');
     end
     axis([-1 1 .45 .65]);
     axis square;
@@ -124,9 +124,9 @@ end
 %% Figure S1. Decoding Sdv
 cpsFigure(1,.7);
 data = sq(mdata.nerr_std(1,:,:));
-myerrorbar((1:nROI)-.1, mean(data,2), std(data,[],2)/sqrt(nsub),0,[.2 .2 .2]);
+plot_errorbar((1:nROI)-.1, mean(data,2), std(data,[],2)/sqrt(nsub),0,[.2 .2 .2]);
 data = sq(mdata.nerr_std(2,:,:));
-myerrorbar((1:nROI)+.1, mean(data,2), std(data,[],2)/sqrt(nsub),0,[.7 .7 .7]);
+plot_errorbar((1:nROI)+.1, mean(data,2), std(data,[],2)/sqrt(nsub),0,[.7 .7 .7]);
 xlim([.5 nROI+.5])
 set(gca, 'XTick', 1:nROI, 'XTickLabel', ROIs, 'FontSize',12);
 box off;
@@ -160,7 +160,7 @@ for vv = 1:nROI
     axis([-.5 1 0.2 1]);
     
     if vv==1
-        mylabel('Neural prioritization','Estimated weight',12);
+        plot_label('Neural prioritization','Estimated weight',12);
     end
     
     box off; 
@@ -189,7 +189,7 @@ for vv = 1:nROI
     box off;
     
     if vv==1
-    mylabel('Unc L-H','sacRT L-H',12);
+    plot_label('Unc L-H','sacRT L-H',12);
     end
     
 end
@@ -205,7 +205,7 @@ for vv = 1:nROI
     ss.MarkerEdgeColor = [1 1 1];
     ss.MarkerFaceColor = [.8 .8 .8];
 end
-myerrorbar(thisx, thisy, sem, 0,'k',[]); hold on;
+plot_errorbar(thisx, thisy, sem, 0,'k',[]); hold on;
 ff = fplot(@(x) 0, [0 nROI+1],'--');
 ff.Color = [.5 .5 .5];
 axis([.5 nROI+.5 -.4 .4]);
