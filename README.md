@@ -59,6 +59,6 @@ This repository contains data and code reported in:
   Located in the folder `Decode_2item`. The estimation of the noise covariance matrix adapts the TAFKAP method developed by Van Bergen & Jehee - *BioRxiv, 2021*.
 
 - **Summary:**  
-  Run `Decode_2item` to plot summary of the results shown in the paper.
+  Run `plot_summar.m` to plot summary of the results shown in the paper.
 
 ---
