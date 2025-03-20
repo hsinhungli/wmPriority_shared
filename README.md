@@ -37,7 +37,6 @@ This repository contains data and code reported in:
 - **Folder:** `mdata/decoded`
   - **Description:**  
     Contains decoding results for each subject and ROI. Each `.mat` file includes:
-    - **Variable `lf`:** Decoded 2-dimensional likelihood surface.
     - **Variables `est` and `unc`:**  
       - `est`: Decoded locations  
       - `unc`: Decoded uncertainty  
@@ -58,5 +57,8 @@ This repository contains data and code reported in:
   
 - **Decoding Algorithms:**  
   Located in the folder `Decode_2item`. The estimation of the noise covariance matrix adapts the TAFKAP method developed by Van Bergen & Jehee - *BioRxiv, 2021*.
+
+- **Summary:**  
+  Run `Decode_2item` to plot summary of the results shown in the paper.
 
 ---
