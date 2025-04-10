@@ -22,7 +22,7 @@ addpath(genpath('./Decode_2item'));
 %% Voxel selection load 1-item dataset
 fn_psy = sprintf('data/behav_1item/%s_log.mat',subj);
 fprintf('BEHAVIOR: %s...\n',fn_psy);
-load(fn_psy); %load behavioral data saved in structure 'psy'
+psy = load(fn_psy); %load behavioral data saved in structure 'psy'
 
 all_data = [];
 for sess_idx = 1:length(sess_1item)
@@ -45,7 +45,7 @@ clear all_data psy;
 %load subj behavioral data
 fn_psy = sprintf('data/behav_2item/%s_log.mat',subj);
 fprintf('BEHAVIOR: %s...\n',fn_psy);
-load(fn_psy); %load behavioral data saved in structure 'psy'
+psy = load(fn_psy); %load behavioral data saved in structure 'psy'
 
 startidx = 1;
 all_data = [];

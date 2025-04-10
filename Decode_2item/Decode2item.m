@@ -1,13 +1,24 @@
 function [liks, hypers] = Decode2item(samples, p)
 
-% TODO: ADD NOTES HERE
+% Inputs:
+% samples: trial X voxel, voxel activity patterns to be decoded
+% p: the structure that contains information about target location in
+% p.stimpos (trial X 2), condition label (valid vs. invalid condition) in
+% p.condition. p.n_angs, p.ang1 and p.ang2 determine how locations are
+% sampled
+%
+% Outputs:
+% liks: decoded likelihood surface of each test trial
+% hypers: hyperparameters
+%
+% The estimation of covariance matrix adapted procedures reported 
+% in TAFKAP method (Van Bergen, JFM Jehee - BioRxiv, 2021)
 
 %% Initialize parameters
 train_samples = samples(p.train_trials,:);
 test_samples = samples(p.test_trials,:);
 Ntesttrials = size(test_samples,1);
 train_loc = p.stimpos(p.train_trials,:)/180*pi;
-%test_ori = p.stimpos(p.test_trials,:)/180*pi;
 
 high_loc = train_loc(:,1); %high priority stimulus is the same as the first column (target) in most trials
 high_loc(p.condition(p.train_trials)==2) = train_loc(p.condition(p.train_trials)==2,2); %except the invalid cue trials
@@ -29,7 +40,7 @@ fprintf('\n--PERFORMING HYPERPARAMETER SEARCH\n')
 lvr = linspace(0,1,50)';
 lr = linspace(0,1,50)'; lr(1) = [];
 hypers = find_lambda(p.runNs(p.train_trials), {lvr, lr});
-
+%hypers = [0.96,0.24];
 %% estimate W & covariance
 [W, est_w, noise] = estimate_W(train_samples, Ctrain_1, Ctrain_2, 0); %estimate_W(samples, C1, C2, do_boot, test_samples, test_C1, test_C2)
 hypers(end+1) = est_w;
